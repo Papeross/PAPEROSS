@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precio Semanal de la Papa en Colombia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            margin: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .chart-container {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Precio Semanal de la Papa en Colombia</h1>
+        <p>Actualización de precios semanal por ciudad</p>
+    </header>
+
+    <main>
+        <section class="table-container">
+            <h2>Comparación de Precios Semanales</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Semana</th>
+                        <th>Bogotá</th>
+                        <th>Medellín</th>
+                        <th>Cali</th>
+                        <th>Bucaramanga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Semana 1</td>
+                        <td>1,200 COP</td>
+                        <td>1,180 COP</td>
+                        <td>1,150 COP</td>
+                        <td>1,170 COP</td>
+                    </tr>
+                    <tr>
+                        <td>Semana 2</td>
+                        <td>1,210 COP</td>
+                        <td>1,185 COP</td>
+                        <td>1,160 COP</td>
+                        <td>1,175 COP</td>
+                    </tr>
+                    <!-- Agregar más filas por cada semana -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="chart-container">
+            <h2>Evolución de Precios Semanales</h2>
+            <canvas id="weeklyPriceChart"></canvas>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('weeklyPriceChart').getContext('2d');
+        const weeklyPriceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                datasets: [
+                    {
+                        label: 'Bogotá',
+                        data: [1200, 1210, 1190, 1220],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        fill: false
+                    },
+                    {
+                        label: 'Medellín',
+                        data: [1180, 1185, 1170, 1195],
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        fill: false
+                    },
+                    {
+                        label: 'Cali',
+                        data: [1150, 1160, 1145, 1170],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false
+                    },
+                    {
+                        label: 'Bucaramanga',
+                        data: [1170, 1175, 1160, 1185],
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Semana'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Precio (COP)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+ 
